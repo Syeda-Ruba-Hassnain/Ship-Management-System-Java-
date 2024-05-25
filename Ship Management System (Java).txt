@@ -1,0 +1,144 @@
+public class Ship {
+
+	private String name;
+	private String builtDate;
+	
+	public Ship(String n, String date)
+	{
+		name = n;
+		builtDate = date;
+	}
+	
+	public Ship()
+	{
+		name = "";
+		builtDate = "";
+	}
+	
+	public void setName(String n)
+	{
+		name = n;
+	}
+	
+	public void setBuiltDate(String b)
+	{
+		builtDate = b;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getBuiltDate()
+	{
+		return builtDate;
+	}
+	
+	public String toString()
+	{
+		String str = "Name: " + name;
+		
+		str += ("\nBuiltDate: " + builtDate);
+		return str;
+	}
+}
+
+public class CruiseShip extends Ship
+{
+
+	private int maxPass;
+	
+	public CruiseShip(String n, String b)
+	{
+		super(n, b);
+	}
+	
+	public void setMaxPass(int mp)
+	{
+		maxPass = mp;
+	}
+	
+	public int getMaxPass()
+	{
+		return maxPass;
+	}
+	
+	public String toString()
+	{
+		String str;
+		
+		str = super.toString() +
+		"\nShip's Name: " + n +
+		"\nMaximum Passengers: " + maxPass;
+		
+		return str;
+	}
+}
+
+public class CargoShip extends Ship
+{
+
+	private int cargoCap;
+	
+	public CargoShip(String n, String b)
+	{
+		super(n, b);
+	}
+	
+	public void setCargoCap(int cc)
+	{
+		cargoCap = cc;
+	}
+	
+	public int getCargoCap()
+	{
+		return cargoCap;
+	}
+	
+	public String toString()
+	{
+		String str;
+		
+		str = super.toString() +
+		"\nShip's Name: " + n +
+		"\nCargo Capacity; " + cargoCap;
+		
+		return str;
+	}
+	
+}
+
+public class ShipDemo 
+{
+	public static void main(String[] args)
+	{
+		//Create an array of Ship References.
+		Ship[] types = new Ship[6];
+		
+		types[0] = new Ship();
+		types[0].setName("Carnival");
+		((CruiseShip) types[0]).setMaxPass(500);
+		
+		types[1] = new Ship();
+		types[1].setName("Royal Caribbean");
+		((CruiseShip) types[1]).setMaxPass(1000);
+		
+		types[2] = new Ship();
+		types[2].setName("Sony");
+		((CargoShip) types[2]).setCargoCap(10000);
+		
+		types[3] = new Ship();
+		types[3].setName("Playskool");
+		((CargoShip) types[2]).setCargoCap(25000);
+		
+		
+		
+		for (int i=0; i < types.length; i++)
+		{
+			System.out.println("Ship " + (i + 1) + ": ");
+			//Need something here to call the toString methods 
+			
+		}
+	}
+}
